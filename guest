@@ -52,6 +52,7 @@ class Guest:
             print("Reservation on {} was successful".format(check_in))
             print("Notification is sent to {}".format(self.__email))
             self.__loyalty_points += 10
+            room.set_availability(False)
 
         else:
             print("Reservation Failed Room {} not available".format(room.get_room_number()))
@@ -86,15 +87,14 @@ class Guest:
         if not cancelled:
             print("Reservation with this Room Number Not Found.")
 
-
     def check_loyalty_rewards(self, hotel):
         '''
         This method will display what are the loyalty rewards the customer is eligible for.
         :param loyalty_program:
         :return:
         '''
+        print("\n*****      Loyalty Rewards check for {}    *****".format(self.get_name()))
         print("Loyalty Points :",self.__loyalty_points)
         loyalty_program = hotel.get_loyalty_program()
         rewards = loyalty_program.get_eligible_rewards(self)
         print("Your Rewards :",rewards)
-

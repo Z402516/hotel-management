@@ -1,5 +1,3 @@
-
-
 class LoyaltyProgram:
     def __init__(self):
         self.__rewards = {}
@@ -13,8 +11,8 @@ class LoyaltyProgram:
     def remove_program(self, points_required):
         '''
         This method removed the reward from the loyalty program
-        :param points_required: 
-        :return: 
+        :param points_required:
+        :return:
         '''
         if points_required in self.__rewards:
             del self.__rewards[points_required]
@@ -22,8 +20,8 @@ class LoyaltyProgram:
     def get_eligible_rewards(self, guest):
         '''
         This method takes in the object of guest and returns the rewards he/she might be eligible for.
-        :param guest: 
-        :return: 
+        :param guest:
+        :return:
         '''
         rewards = ""
         for points, reward in self.__rewards.items():

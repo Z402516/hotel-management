@@ -1,3 +1,6 @@
+from loyaltyprogram import LoyaltyProgram
+from datetime import datetime
+
 class Hotel:
     def __init__(self, name, address):
         self.__name = name

@@ -1,5 +1,3 @@
-from datetime import datetime
-
 class Hotel:
     def __init__(self, name, address):
         self.__name = name
@@ -8,6 +6,9 @@ class Hotel:
         self.__rooms = []
         self.__loyalty_program = LoyaltyProgram()
         self.__reservations = []
+
+    def add_rooms(self,rooms):
+        self.__rooms.extend(rooms)
 
     def get_name(self):
         return self.__name
@@ -41,7 +42,7 @@ class Hotel:
         This method iterates over the list of rooms and checks if the room is available then it
         displays the information of the room.
         '''
-        print("*****    Available Rooms     *****")
+        print("\n*****    Available Rooms     *****")
         for room in self.__rooms:
             if room.get_availability():
                 print("Room {}  Type : {}".format(room.get_room_number(),room.get_room_type()))
@@ -57,7 +58,7 @@ class Hotel:
         '''
 
         reservations = len(guest.get_reservations())
-        print("*****    Invoice     *****")
+        print("\n*****    Invoice     *****")
         print("{} Total Reservations for {}".format(guest.get_name(),reservations))
         total_price = 0
         for reservation in guest.get_reservations():
@@ -72,6 +73,11 @@ class Hotel:
             print("Reservation Nights :",days_stayed)
             print("Reservation Price :",reservation_price)
             total_price += reservation_price
+
+        for service in services:
+            print("Service Name :",service.get_service_name())
+            print("Service Price :",service.get_service_price())
+            total_price += service.get_service_price()
 
         print("Total Price :",total_price)
         if discount == 0:

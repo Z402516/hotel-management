@@ -1,3 +1,5 @@
+from reservation import Reservation
+
 class Guest:
     def __init__(self, name, email, phone_number, loyalty_status, loyalty_points=0):
         self.__name = name
